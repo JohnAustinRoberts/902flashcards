@@ -1,0 +1,208 @@
+The Recovery Console
+  -for when windows won't boot(was on windows xp, not vista or 7, still may be on exam... weird)
+  -insert your optical media and run the recovery console
+  -can then try to log into one of the versions of windows it finds
+  -enter the admin password
+  -and then you get to a command prompt type interface
+    -fixboot
+      -this will rewrite a new boot secotr to your C: boot partition
+    -fixmbr
+      -overwrites master boot record to your c:
+      -do not do if you have a virus or it will wipe all data
+    -listsvc
+      -shows services running on system
+    -diskpart
+      -can run here as well to manipulate partitions
+      -be careful!
+
+Windows Recovery Environment
+  -for when windows won't boot (post windows xp)
+  -get there using optical installation media
+  -two versions 
+    -windows7/vista
+      -repair your computer
+        -will search for windows installations/backups/restore points/corruption
+        -can use a system image to restore computer 
+        -or continue with recovery
+          -Startup Repair
+            -automatically fix problems that are preventing windows from being started
+            -reinstalls boot file and other critical files
+          -System Restore
+            -restore windows to an earlier point in time
+          -System Image Recovery
+            -use that system image you created earlier. You did create one, right?
+          -Windows Memory Diagnostic
+            -check your computer for memory hardware errors
+          -Command Prompt
+            -opens command prompt window
+    -windows 8/8.1/10
+      -insert optical boot media
+      -repair your computer
+        -troubleshoot
+          -refresh your pc
+            -goes through several functions to check everything to automatically solve any issues 
+          -reset your pc
+            -this brings it back to the original installation image
+          -advanced options
+            -most often used 
+            -system restore
+              -searches for restore points
+            -system image recovery
+              -use a system image to reboot the system
+            -command prompt
+              -this opens the command prompt
+            -startup repair
+              -does a diagnostic scan on things that are used on startup
+            
+Advanced Startup Options (Part 1- Windows xp, vista, and 7)
+  -press f8 during boot process to get there
+  -Safe Mode
+    -most often used
+    -boots windows is most basic possible mode
+    -allows system restore
+  -Safe Mode with Networking
+    -same as safe mode, but attempts to connect to network as well in case you need to download drivers
+  -Safe Mode with Command Prompt
+    -Don't really come across this often. It will open safe mode with a maximized command prompt window.
+    -you can open a command prompt in safe mode, so there's no need to use that
+  -Enable Boot Logging
+    -creates a file called bootlog.txt
+    -this keeps track of every piece of windows as it loads, this will help identify problems
+  -Enable VGA Mode
+    -run at 640x480 with 16 colors
+    -this helps with video driver issues
+  -last known good configuration
+    -sometimes works
+    -windows saves a congifuration file each time you successfully boot, and will try to load that configuration to boot windows.
+  -Directory Services Restore Mode
+    -Only for domain controllers
+  -Debugging Mode
+    -watch everything load step by step
+  -Disable automatic restart on system failure
+    -This helps on cyclical bsod(blue screen of death) failures
+  -Start Windows Normally
+  -Reboot
+  -Return to OS Choices Menu
+    -if you have multiple versions of operating systems on the system, you change change it here
+  
+Advanced Startup Options (Part 2 - Windows 8, 8.1, and 10)
+  -Boot failure can cause windows to auto launch the startup options menu
+  -Screen shows Automatic Repair
+    -click advanced options
+      -troubleshoot
+        -advanced options
+          -startup settings
+            -restart
+              -options:
+                -run debugging
+                -enable boot logging
+                -enable low-resolution mode
+                -enable safe mode
+                -enable safe mode with networking
+                -enable safe mode with command prompt
+                -disable driver signature enforcement
+                -disable early launch anti-malware protection
+                  -at the moment of boot, anti-malware software is running, this turns it off to lighten the stress level on the system during boot when issues are arising
+                -disable automatic restart after failure
+                -f10 for more options
+                  -launch recovery environment
+    -can get there from within Windows 8/8.1 by
+      -open charm bar
+      -settings
+        -change pc settings
+          -update and recovery
+            -recovery
+              -advanced startup
+                -restart now
+  Windows 10
+    -The options are the same as they are in windows 8 and 8.1
+    -to get there in windows 10,
+      -windows button > power > shift+click restart
+    
+Boot Problems
+  -4 types of problems
+    -Hardware
+      -ensure storage drive is functioning
+        -check the cabling!
+    -BIOS
+      -no boot device
+        -check boot order
+        -device disabled? make sure eveything is turned on
+    -Desktop
+      -missing OS
+      -missing BCD
+      -boot into windows recovery environment and fix
+    -Autostart
+      -turn off autostart for any unnecessary autostart programs
+
+Event Viewer & Action Center
+  -Event Viewer
+    -Control Panel > Administrative Tools
+    -Fullscreen is your friend
+     -application logs
+       -logs dealing with applications
+     -security logs
+       -log ons/ log offs
+     -setup logs
+       -setup logs
+     -system logs
+       -just for system things
+    -reviewing these logs is called auditing
+    -Levels
+      -Information
+        -something happend, so it was logged
+      -Warning 
+        -a problem wsa found, but fixed
+      -Error
+        -a problem was found, but could not be fixed
+      -Critical
+        -Very bad error
+    -Views
+      -custom filtered logs to make viewing logs easier
+  -Action Center
+    -provides automatic notifications about real-time issues
+    -Security
+      -gives us a breakdown of all security issues
+    -Maintenance
+      -will show any notifications about maintenance issues
+
+Application Troubleshooting
+  -missing dll
+    -the application executable file cannot fine a dynamic link library
+    -a dll is a file containing subroutines
+    -malware often pops as missing dll, so research before installing anything
+    -open command prompt and run sfc /scannow to run the system file checker
+    -reinstall the application
+    -search for the missing dll online
+    -sometimes windows will require you to register the dll
+      -run a program called regsvr32 
+        -just enter regsvr32 dllName in the command prompt
+  -missing service
+    -check services
+      -make sure it's turned on
+    -enable servce at startup in msconfig
+    -reinstall application
+    -research time!
+  -compatibility troubleshooting
+    -right click on program and click compatibility troubleshooting
+      -this will work sometimes
+    -right click on progarm and go to properties
+      -go to compatibility tab
+        -set the version of windows you want to run it with
+    -virtualization
+      -virtual machines to run older programs
+  -system lockup
+    -is it the application that caused it?
+      -if it happens every time you do the same thing? then yes, it's the problem
+    -reboot into safe mode, and uninstall the application
+      -now run the computer for a while, if no more lockups, its the application
+      -try to reinstall the application from another source
+        -if problem continues to persist, it's a bad application, and the creator should be notified of the issue
+    
+Kernel Panics
+  -these are on every OS. During lockups, if possible, the kernel panic wil throw an error on the screen, think blue screen of death
+  -these include error codes you can research
+  -new hardware can cause kernel panics
+  -corrupted driver can cause kernel panics
+  -usually occurs because of something that was just changed
+

@@ -1,0 +1,166 @@
+Media Sources
+  Media sources to install OS (windows/OSX)
+  -Optical Media (discs)
+    -can get scratched
+    -works slowly
+    -can get lost 
+  -ISO file
+    -block by block copy (which is an image) of an optical media
+    -can be put on thumb drives, burned to optical media
+    -To create an ISO
+      -copy the file from a windows optical media disk
+        -insert the windows disc into your system
+        -you'll need a program to create the iso (isoburner)
+          -allows right-click > create image from cd/dvd > select a destination
+        -then you'll need a third party tool (iso recorder)
+          -right click on media in left system tray of file explorer
+          -create image from cd/dvd > select a destination 
+          -This will create an ISO file
+          -Put it on a thumb drive to create a backup (you'll need your cd/activation key)
+            -You can use Rufus by Aiko
+            -This will make it easy to put the ISO to a thumbdrive
+            -Select the ISO from the dropdown
+            -select the ISO to pass the data to
+          -You can also use it for virtual machines
+      -or download them
+        
+Windows Install Options
+  -Unattended Installation
+    -Create Answer File 
+      -preset all of the answers for the setup questions (use location, use cortana, send data, etc)
+      -this is done with Setup Manager
+        -this will ask you the questions, and then save it to a text file called (unattend.txt)
+      -add this text file in a specific location with in your ISO file, and then save the data to a new opticcal disc/resave to thumbdrive
+  -Network Installation
+    -This sends a windows image from a windows server to a system without windows server
+      -this is done via PXE (Preboot Execution Environment)
+      -set on system to look for PXE in BIOS on windowless system
+        -this will tell it to look to the server for boot
+      -can do the same with virtualization server
+    -Apple does the same for netboot
+      -works the same as PXE
+  -Image Deployment
+    -Install on a single machine and save it as an image file and deploys it to multiple other machines
+      -this is called a Symantic Ghost Server
+    -use ghost utility to create boot flash drive
+      -this will call out to the server when set to boot from thumbdrive
+
+Windows Upgrade Paths
+  -clean install (the flamethrower version)
+    -wipes hard drive
+    -installs new version
+    -can install anything to anything
+  -Upgrade Install
+    -maintains current data
+    -still upgrades windows
+    -should be faster than clean install
+  -Versions and Editions
+    -Versions
+      -Windows Vista
+      -Windows 7
+      -Windows 8
+      -Windows 8.1
+      -Windows 10
+    -Editions
+      -Home/Base Versions
+        -Basic
+          -has core features but lacks a lot of features important to businesses
+        -Windows Vista Home Basic
+        -Windows Vista Home Premium
+        -Windows 7 Home Basic
+        -Windows 7 Home Premium
+        -Windows 8 [Core]
+        -Windows 8.1 [Core]
+        -Windows 10 Home
+      -Professional/Main Versions
+        -has features to join domains, and can do a lot of things businesses need
+        -Windows Vista Business
+        -Windows 7 Professional
+        -Windows 8 Pro
+        -Windows 8.1 Pro
+        -Windows 10 Pro  
+      -Ulitimate Versions
+        -Had all the bells and whistles
+        -Windows Vista Ultimate
+        -Windows 7 Ultimate  
+      -Enterprise Versions
+        -Has all the business stuff in it, typically not for private sale, but only for enterprises
+        -Windows Vista Business
+        -Windows 7 Professional
+        -Windows 8 Pro
+        -Windows 8.1 Pro
+  -Timeline
+    Vista(2006-2012) >> Windows 7 (2009-2015) >> Windows 8 (2012) >> Windows 8.1 (2013) >> Windows 10 (2015)
+  -Cannot upgrade more than one version up from where you are now
+    -except for
+      -Windows 8 vs Windows 8.1
+        -pretty much the same thing
+      -Windows 7 to Windows 8.1
+        -actually upgrades to 8 then to 8.1
+      -Windows 10 will allow anything from windows 7 and up
+----------------------------------------------------------    
+From Windows Vista     to Windows 7
+Home Basic >>>>>>>>>>> Home Basic, Home Premium, Ultimate
+Home Premium >>>>>>>>> Home Premium, Ultimate
+Business >>>>>>>>>>>>> Professional, Enterprise, Ultimate
+Enterprise >>>>>>>>>>> Enterprise
+Ultimate >>>>>>>>>>>>> Ultimate
+-----------------------------------------------------------
+From Windows 7          to Windows 8
+Starter >>>>>>>>>>>>>> Windows 8, Windows 8 Pro
+Home Basic >>>>>>>>>>> Windows 8, Windows 8 Pro
+Home Premium >>>>>>>>> Windows 8, Windows 8 Pro
+Professional >>>>>>>>> Windows 8 Pro, Windows 8 Enterprise
+Enterprise >>>>>>>>>>> Windows 8 Enterprise
+Ultimate >>>>>>>>>>>>> Windows 8 Pro
+-----------------------------------------------------------
+From Windows 7/8/8.1    to Windows 8.1
+Windows 7 >>>>>>>>>>>> Windows 8.1
+Windows 8 >>>>>>>>>>>> Windows 8.1, Windows 8.1 Pro
+Windows 8 Pro >>>>>>>> Windows 8.1 Pro, Windows 8.1 Enterprise
+Windoes 8 Pro w/Media Center >> Windows 8.1 Pro, Windows 8.1 Enterprise
+Windows Enterprise >>> Windows 8.1 Pro, Windows 8.1 Enterprise
+Windows 8.1 >>>>>>>>>> Windows 8.1 Pro
+Windows 8.1 Pro >>>>>> Windows 8.1 Enterprise
+--------------------------------------------------------------
+32bit vs 64bit
+  -when considering upgrading a system, which should you use?
+  -if you have a 32 bit system, the only way to upgrade to a 64 bit system is a clean install
+
+Installing Windows
+  -The same questions are asked across all versions of windows
+  -Some icon will come up 
+    -this shows that the optical media is being read and RAM is being loaded
+    -select language to install in
+    -select time
+    -select keyboard type
+    -select install
+    -enter the product key when prompted
+    -Select upgrade or clean install
+    -go get a sandwich
+    -after a little bit, you'll get installed
+    -name your computer
+
+Post Installation Tasks
+  -Check your drivers
+    -this is in device manager
+  -Start Windows Update
+    -Check for updates
+  -Security
+    -Control Panel
+      -System and Security
+      -Turn on Firewall
+      -Make sure Windows Defender is on and running
+        -now is also when you'd install norton/mcaffee
+  -Prepare for trouble
+    -make backups!!
+      -Turn on file history
+      -take a snapshot of the image
+       -go to system properties (look for system protection/restore points)
+       -creates a restore point in case of crash
+      -Make a recovery drive
+        -looks for a thumbdrive
+        -creates a recovery disc on your thumbdrive
+  -Documentation
+    -WRITE DOWN EVERYTHING!
+

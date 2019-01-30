@@ -1,0 +1,83 @@
+Communication
+  -6 step process
+    -Step 1 - Set the Stage
+      -Be on time, introduce yourself and ask permission to begin working
+    -Step 2 - Be Attentive
+      -Allow the customer to describe the problem
+      -Ask open ended question to narrow the scope of the problem
+      -Restate the issue or question to verify understanding
+      -Avoid Distractions or Personal Interruptions
+      -Communicate timeline and expectations with the customer
+    -Step 3 - Be Polite
+      -Be culturally sensitive
+      -avoid technical jargon and slang
+    -Step 4 - Handle Problems
+      -Maintain a postive attitude - don't argue with the customer
+      -Offer different repair options if availiable
+      -Avoid being judgemental
+    -Step 5 - Don't Snoop
+      -Deal appropriately with a customer's confidential files
+      -If it's not a felony, you didn't see it.
+    -Step 6 - Finish the Job
+      -Follow up with the customer to verify satisfaction
+      -Excuse yourseelf when taking important phone calls
+      -Provide proper documentation on services provided
+
+Three threats to your PC
+  -RFI (Radio Frequency Interference)
+    -can cause trouble during data transfers
+    -lease dangerous
+  -EMI (ElectroMagnetic Interference)
+    -large magnetic waves in places they shouldn't be
+    -Hard drives store data magnetically, magnets can wipe a hard drive! (called degaussing)
+  -ESD (Electrostatic Discharge)
+    -can destroy the small circuits throughout your computer
+    -Always unplug your computer before working on it!
+      -touch the case or powersupply to ground yourself
+      -even better, use anti esd mat and wristband
+    -Only really a big risk to CPUs and RAM
+    -Antistatic Bags
+      -when transporting, you should have any components in an anti-static bags
+    -Antistatic Foam 
+      -another medium to keep static away
+
+Physical Safety
+  -wearing ties or loose jewelry and getting them caught in fans
+  -when swapping out cards or installing anything, ensure the system is shut off and unplugged
+  -use proper lifting technique
+    -don't use your back
+    -ask for help if you need it  
+    -use hand trucks if availiable
+
+Equipment Safety
+  -big messes of cables 
+    -makes it difficult to follow cables from one end to the other
+    -tripping hazard
+    -can cause electromagnetic interference
+    -use cable management tools to avoid these issues
+  -have a fire extinguisher availiable
+    -power supplies and other components can catch fire, and one of these should always be availiable
+    -need Type-C fire extinguisher for electronics fires
+    -these consume all availiable oxygen in the room, so be sure to get out of the room quickly after deploying a fire extinguisher
+  -Tools
+    -A screwdriver is one of the most important tools you'll need to use
+    -ifixit.com toolkit (the one you bought!)
+    -voltmeters (multimeters)
+      -how to measure a wall outlet
+        -set to voltage
+        -plug red lead to into hot (small slit) and black lead into neutral (large slit)
+        -should read 115-120 bolts
+        -move black lead to ground (should also read 115-120)
+        -plub red lead to neutral and black lead to ground (should show 0 volts)
+  -Local Compliance
+    -check your local laws to make sure that you are up to code on all local laws and OSHA
+
+Troubleshooting Theory
+  -Steps you must do to fix stuff (according to COMPTIA A+)
+  -MEMORIZE ALL OF THESE
+    -1 Identify the problem
+    -2 Establish a theory of probable cause
+    -3 Test the theory to determine probable cause
+    -4 Establish a plan of action
+    -5 Verifying Full System Functionality
+    -6 Document your process and findings

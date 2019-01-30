@@ -1,0 +1,64 @@
+Internet Options
+  -Control panel applet
+    -mostly for configuring internet explorer browser
+    -General
+      -use the general tab to configure home screen settings
+      -start with new page, or previous tabs
+      -clear history on exit
+    -Security
+      -block sites and things, mostly obsolete
+    -Privacy
+      -Cookie settings
+      -pop up blocker can be turned on here
+        -can also set to allow certain sites to allow popups
+    -Content
+      -Content tab for controlling what can viewd on the browser
+      -certificate controls
+      -autocomplete controls are here!!!
+    -Connections
+      -for adjusting internet connections
+      -LAN settings are here
+    -Programs
+      -adjusting external applications 
+    -Advanced
+      -Reset Settings
+
+Proxy Servers
+  -We'll set these up in the Connections tab of the Internet Options Control Panel Applet
+  -A proxy server is a box that sits between the network and the internet.
+    -these can block unwanted sites and applications
+    -manually adjust every internet application for proxy server
+      -Chrome walkthrough
+        -Open Chrome Settings
+        -Advanced Settings
+        -Change Proxy Settings
+          -this will automatically open the internet options control applet 
+        -We then need to click on LAN settings
+          -Use a proxy server for your LAN
+          -input address and port number of proxy server given by network administrator
+-Malware can cause proxy server changes
+
+Troubleshooting Internet Connections
+  -DNS Issues
+    -open command prompt and ping anything on the internet
+      -ping www.google.com
+        -if the ping returns the IP address, then DNS is working, regardless of whether you get a response
+    -if that doesn't work
+      -ipconfig /all
+        -find DNS Server IP 
+         -ns lookup
+           -enter website name 
+             -check for output, if not good, try 'server 8.8.8.8' to connect to google DNS
+           -type exit to get out
+      -ipconfig /displaydns
+        -will display DNS connections
+      -ipconfig /flushdns
+        -clears dns logs
+  -Slow Connection / Response Time
+    -network utilization 
+      -check your network utilization in task manager
+      -run netstat to see what's pushing hard on the network
+      -adjust Quality of Service settings if one person is hogging the network and cut back their total usage
+        -giggle maniacally 
+    
+    

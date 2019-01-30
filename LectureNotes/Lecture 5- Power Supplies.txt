@@ -1,0 +1,23 @@
+Power Supplies
+  -Never Skimp on a Power Supply
+  -Efficiency
+    -The amount of watts that is actually generated vs the amount rated
+  -Rails
+    -electrical circuityry that isolate different power outputs
+
+Power Protection
+  -Power Spikes
+    -more than 120 volts AC
+    -breaks stuff by overloading circuits
+  -Power Sag/Brownout
+    -less than 120 volts AC at peaks
+    -turns stuff off, not breaking stuff
+  -Surge Supressor
+    -mitigate the amount of spikes/surges
+    -Smooths spikes down to no more than 120 volts
+    -things to look for
+      -look for UL rated powerstrip sticker
+      -reset button
+      -look for something with rj11/dsl line connectors
+      -to mitigate sags, (uninterupptable power supply) UPS should be used
+        -basically a surge protector with a battery built in

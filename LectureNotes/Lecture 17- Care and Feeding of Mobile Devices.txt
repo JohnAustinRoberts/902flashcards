@@ -1,0 +1,173 @@
+Cellular Configuration
+  two types of cellular phones
+    -CDMA (Code Division Multiple Access)
+      -older technolody
+      -Mostly used in USA
+      -does not have a sim card
+      -provided by wireless carrier
+      -Settings
+        -About Phone
+        -Status
+          -PRL (Preferred Roaming List) Version
+            -fixed list on the system to show roaming areas
+            -to update, contact your carrier for update instruction
+          -Phone Number
+            -obvious
+          -ESN (Electronic Serial Number)
+            -the way to identify individual phones
+          -MEID HEX Mobile Equipment Identifier
+            -the real value that identifies their individual phones
+          -MIN (Mobile Identification Number)
+            -what your phone useds to identify itself into a new geographic area
+          -IMSI (International Mobile Subscriber Identity)
+            -Personal information about the phone user
+            -only phone company can access this information  
+    -GMS (Global System for Mobile Communication)
+      -a little newer
+      -90% of world's phones are GMS
+      -GMS has a sim card 
+        -the sim card can carry personal information between phones if they are unlocked (and you don't have sprint...)
+      -Settings
+        -About Device
+          -Status
+            -IMEI (International Mobile Station Equipment Identity)
+              -The identifire for a GSM phone
+              -used for activation
+              -document this before you have trouble
+              -a trick to get this info easily, dial *#06
+                -this will display your IMEI value and serial number
+            -IMSI (International Mobile Subscriber Identity)
+              -Cannot get to this
+              
+Wireless Mobile Connections 
+  -802.11
+    -wireless network connection
+    -Setup
+      -Turn on wifi
+      -Select a network
+      -Enter password
+      -connect
+    -Ensure your phone wifi is the same 802.11 standard and band as your wap (wireless access point)
+    -Can set static IP address
+    -Can reassign DHCP protocols
+    -turning off wifi can save battery life, but not by much
+  -Bluetooth
+    -can connect to speakers, car for hands free audio
+    -have to pair to device with the pairing code
+  -Cellular
+    -can turn off data to prevent exceeding data caps
+    -Enable/Disable International Data 
+  -Hotspots
+    -can turn the phone into a WAP for multiple devices to connect to
+    -this uses the phone's data plan
+    -settings
+      -enable hotspot
+      -setup wifi hotspot to change ssid and password
+  -Tethering  
+    -uses a cable to connect the phone to a single computer and use the phone's data connection to connect the computer to the internet
+    -this is more difficult to hack than a hotspot
+    -settings
+      -more
+        -turn on tethering
+  -NFC and WiFi Direct
+    -NFC (Near Field Communication)
+      -quick to connect
+      -slow transfer speed 424kb/s
+      -good for small chunks of info
+      -Can be turned on in settings
+      -Called Android Beam in android phones
+      -NFC can transfer data between phones quickly
+      -Can send data to printer
+      -Apple only use NFC for Apple Pay :(
+    -Wifi Direct
+      -allows quick interconnections at high speed
+      -usually creates a temporary ad-hoc network between NFC devices
+      -usally used through apps
+    -Infrared
+      -Most android device have built in IR trasnmittors/receivers
+      -can be used as a remote control
+      -apple phones cant do that
+
+Mobile Devices and Email
+  -settings
+    -mail
+      -add account
+        -choose and add your account
+        -provide username and password
+  -to set up imap or pop3
+    -settings
+      -setup an imap/pop3
+        -input username and password
+        -set server
+        -set security
+          -SSL/TLS
+          -STARTTLS
+          -This is given by your Email Administrator
+        -set outgoing server (SMTP)
+          -enter mail server
+          -enter port number (usually use port 587 or 25)
+          -set security
+  Microsoft Exchange
+    -Setup
+      -Settings
+        -Add Account 
+          -Select Exchange
+            -Provide email address and password
+              -
+    -MIME (Multipurpose Internet Mail Extensions)
+      -sending attachments with emails
+      -not secure
+    -S/MIME
+      -secure
+      -used by Exchange
+      -for encryption, provide certificate and mobile device id
+        -this is given to you from the system admistrator
+    
+Syncronization
+  -When all your stuff goes between multiple devices
+  -User accounts are created/signed into at activation of the mobile device
+  -Apple Syncing
+    -itunes syncs with desktop
+    -icloud syncs with cloud
+  -Windows Mobile
+    -only syncs to the cloud using outlook
+  -Syncing with Android
+    -syncs via google sync
+    -each google apps data is synced across devices
+    
+Securing Android Devices
+  -Antimalware
+    -does not come with android, need to install third party program
+  -Updates and Patches
+    -can be done in play store > settings
+    -Ensure firmware is up to date
+  -Remote Wipe and Locator Applications
+    -need third party apps installed to do these
+  -Remote Backup
+    -Backup and Reset
+      -with android, it can backup your data to your gmail account, and when signing into a new account the data will be brought over
+  -Passcodes
+    -Androids have screen locks (draw the pattern)
+    -face unlock
+    -thumbprint
+    -pin codes
+
+Securing iOS Devices
+  -antimalware is not an issue
+  -how to locate stolen/lost devices
+    -find my iphone
+      -log into icloud
+      -find my iphone
+      -from here can play a sound or send a message to the phone, remotely lock the phone, or remotely wipe the phone
+    -should also have a remote backup set up to an icloud account
+  -ways to update
+    -can be done in itunes
+    -or use app store and go to update tab
+    -to update OS, go to settings > general > software update
+  -Passcodes
+    -in settings
+    -can turn passcode on
+    -and set a passcode
+    
+
+            

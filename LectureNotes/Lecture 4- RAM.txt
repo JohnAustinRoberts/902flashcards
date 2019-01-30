@@ -1,0 +1,35 @@
+RAM
+  -Temporary Storage where programs run
+ Types of RAM-
+  DRAM (Dynamic RAM)
+   -has been improved dramatically over 30 years
+  4 types that have been used
+    -SDRAM (Synchronous DRAM) 
+      -Synchronized to system clock
+      -168 Pin DIMM (Dual inline Memory Modules)
+      -has 2 notches is bottom
+      -Clock Speed meant RAM started getting Speed Ratings
+    -Dual Data Rate SDRAM- DDR-SDRAM
+      -184 Pin DIMM
+      -Single notch
+      -Takes motherboard speed, and doubles it. thus speeding up ram without speeding up motherboard
+      -Take the mobo speed (100Mhz), double it, and that gives you stick speed (200 Mhz) then x8 = PC1600
+    -DDR2 
+      -240 Pin DIMM
+      -single notch, in a different spot than DDR-SDRAM
+      -Take mobo speed (100mhz), double it, (200MHz), double it again (400Mhz) then x8 = PC2 3200 
+    -DDR3 
+      -240 Pin DIMM
+      -Single notch, again in a new spot.
+      -Take mobo speed (100mhz), quadruple it, (400Mhz), double it (800Mhz) then x8 = PC3 6400
+
+Ram Capacity
+-When installing RAM, install them at the same capacity (i.e. 3 4gb sticks, not 2 4gb and one 2 gb.)
+-Reference your mobo handbook, it'll tell you the biggest RAM your mobo can handle
+
+Virtual Memory
+  -Swap File
+    -starts as an empty file
+    -when RAM is full, the least used program is moved from RAM to the swap file
+    -Usually done on minimized programs
+    

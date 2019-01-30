@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>901 Flash Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #737373;
+        }
+        #wrapper {
+            background-color: #737373;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+        }
+        #titleDiv {
+            background-color: green;
+            border: 2px solid black;
+            width: 60%;
+            height: 100px;
+            margin-left: 20%;
+            padding-top: 3%;
+            margin-bottom: 1%;
+            color: orange;
+        }
+        #title {
+            font-size: 25px;
+        }
+        #subtitle{
+            font-size: 20px;
+        }
+        #categorySelector {
+            background-color:darkgoldenrod;
+            border: 1px solid black;
+            margin-bottom: 0px;
+            width: 60%;
+            margin-left: 20%;
+        }
+        #currentCard {
+            background-color: mediumseagreen;
+            padding-top: 15%;
+            width: 80%;
+            height: 200px;
+            color: black;
+            margin-left: 10%;
+            border: 1px dashed black;
+        }
+        #buttonBar {
+            width: 100%;
+            height: 100px;
+            background-color: #737373;
+        }
+        #allOrNone {
+            margin-bottom: 10px;
+        }
+        #selectAllTopics {
+            background-color: green;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #selectNoTopics {
+            background-color: red;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #generateFlashCards {
+            background-color: black;
+            color: yellow;
+            border: 2px solid yellow;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #showAnswer {
+            background-color: yellow;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #showQuestion {
+            background-color: yellow;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #correct {
+            background-color: green;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #incorrect {
+            background-color: red;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+        #refresh {
+            background-color: blue;
+            color: black;
+            border: 2px solid black;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="titleDiv">
+            <div id="title">A+ Certification 220-901 Flash Cards</div>
+            <div id="subtitle">Created by Austin Roberts</div>
+        </div>
+        <div id="categorySelector">
+            Please choose from the following sections:
+            <form id="checkboxes">
+                <br>
+                <div>
+                    <input type="checkbox" id="visibleComputer" name="visibleComputerCheckbox">
+                    <label for="visableComputer">The Visible Computer</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="operationalProcedures" name="operationalProceduresCheckbox">
+                    <label for="operationalProcedures">Operational Procedures</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ram" name="ramCheckbox">
+                    <label for="ram">RAM</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="powerSupplies" name="powersuppliesCheckbox">
+                    <label for="powersupplies">Power Supplies</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="implementingHardDrives" name="implementingHardDrivesCheckbox">
+                    <label for="implementingHardDrives">Implementing Hard Drives</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="peripherals" name="peripheralsCheckbox">
+                    <label for="peripherals">Essential Peripherals</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="buildingPC" name="buildingPCCheckbox">
+                    <label for="buildingPC">Building a PC</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="windowsHood" name="windowsHoodCheckbox">
+                    <label for="windowsHood">Windows Under the Hood</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="permissions" name="permissionsCheckbox">
+                    <label for="permissions">Users, Groups, and Permissions</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="maintainingOS" name="maintainingOSCheckbox">
+                    <label for="maintainingOS">Maintaining and Optimizing Operating Systems</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="commandLine" name="commandLineCheckbox">
+                    <label for="commandLine">Command Line Interface</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="troubleshootingOS" name="troubleshootingOSCheckbox">
+                    <label for="troubleshootingOS">Troubleshooting Operating Systems</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="virtualization" name="virtualizationCheckbox">
+                    <label for="virtualization">Virtualization</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="internet" name="internetCheckbox">
+                    <label for="internet">The Internet</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="mobile" name="mobileCheckbox">
+                    <label for="mobile">Understanding Mobile Devices</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="mobileDeviceCare" name="mobileDeviceCareCheckbox">
+                    <label for="mobileDeviceCare">Care and Feeding of Mobile Devices</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="printers" name="printersCheckbox">
+                    <label for="printers">Printers and Multifunctions Devices</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="securingComputers" name="securingComputersCheckbox">
+                    <label for="securingComputers">Hard Drive Technologies</label>
+                </div>
+            </form>
+            <div id="allOrNone">
+                    <a rel="checkboxes" href="#select_all"><button id="selectAllTopics">All Topics</button></a>
+                    <a rel="checkboxes" href="#select_none"><button id="selectNoTopics">No Topics</button></a>
+                </div>
+            <div>
+                <button id="generateFlashCards" type="submit" onclick="generate()">Generate Flash Cards</button>
+            </div>
+        </div>
+        <div id="currentCard"></div>
+        <div id="buttonBar">
+            <button id="showAnswer" onclick="showAnswer()">Show Answer</button>
+            <button id="correct" onclick="correct()">Correct</button>
+            <button id="incorrect" onclick="incorrect()">Incorrect</button>
+            <button id="showQuestion" onclick="showQuestion()">Re-Show Question</button>
+            <button id="nextCard" onclick="nextCard()">Next Card</button>
+            <button id="refresh" onclick="location.href='https://johnaustinroberts.github.io/901FlashCards/index.html';">Refresh</button>
+        </div>
+    </div>    
+    <script type="text/javascript">
+      //set ready function for allTopics/NoTopics
+      $(document).ready( function() {
+          //All topics
+          $("A[href='#select_all']").click( function() {
+              $("#" + $(this).attr('rel') + " INPUT[type='checkbox']").attr('checked', true);
+              return false;
+          });
+          //Select No Topics
+          $("A[href='#select_none']").click(function() {
+              $("#" + $(this).attr('rel') + " INPUT[type='checkbox']").attr('checked', false);
+              return false;
+          });
+      });
+        //hide the card div and buttons
+      $("#currentCard").hide();
+      $("#showAnswer").hide();
+      $("#showQuestion").hide();
+      $("#nextCard").hide();
+      $("#correct").hide();
+      $("#incorrect").hide();
+      $("#refresh").hide();
+       //set all variables
+       //correct counter
+      var numCorrect = 0;
+       //incorrect counter
+      var numIncorrect = 0;
+       //create empty object to hold current flash card
+      var currentCard = {};
+       //create numeric to store current card index
+      var currentCardIndex = 0;
+       //create an empty array to house all questions
+      var allTopicsArray = [];
+       //questions for each chapter
+      var operationalProceduresArray = [];
+      var visibleComputerArray = [];
+      var ramArray = [];
+      var powerSupplyArray = [];
+      var implementingHardDrivesArray = [];
+      var peripheralsArray = [];
+      var buildingAPCArray = [];
+      var windowsHoodArray = [];
+      var permissionsArray = [];
+      var maintainingOSArray = [];
+      var commandLineArray = [];
+      var troubleshootingOSArray = [];
+      var virtualizationArray = [];
+      var internetArray = [];
+      var mobileDeviceArray = [];
+      var mobileDeviceCareArray = [];
+      var printersArray = [];
+      var securingComputersArray = [];
+      var importantQuestionsArray = [{"front": "What runs on port 23?", "back": "Telnet", "image": "no", "source": "none"},{"front": "What port is Telnet?", "back": "23", "image": "no", "source": "none"},{"front": "What runs on port 22?", "back": "SSH and SFTP", "image": "no", "source": "none"}, {"front": "What port does SSH run on?", "back": "22", "image": "no", "source": "none"}, {"front": "What runs on port 80?", "back": "Http", "image": "no", "source": "none"}, {"front": "What port does Http run on?", "back": "80", "image": "no", "source": "none"}, {"front": "What port does Https run on?", "back": "443", "image": "no", "source": "none"}, {"front": "What runs on port 443?", "back": "Https", "image": "no", "source": "none"}, {"front": "What runs on port 25?", "back": "SMTP", "image": "no", "source": "none"}, {"front": "What port does SMTP run on?", "back": "25", "image": "no", "source": "none"}, {"front": "What port does POP3 run on?", "back": "110", "image": "no", "source": "none"}, {"front": "What runs on port 110?", "back": "Pop3", "image": "no", "source": "none"}, {"front": "What port does IMAP run on?", "back": "143", "image": "no", "source": "none"}, {"front": "What runs on port 143?", "back": "IMAP", "image": "no", "source": "none"}, {"front": "What port does SFTP run on?", "back": "22", "image": "no", "source": "none"}, {"front": "What port does FTP run on?", "back": "Officially runs on port 21, but also runs on port 20.", "image": "no", "source": "none"}, {"front": "What runs on port 21, and port 20?", "back": "FTP requests are sent out on port 20, and return on port 21.", "image": "no", "source": "none"}, {"front": "What does RDP Stand for and what port does it run on?", "back": "Remote Desktop Protocol runs on port 3389", "image": "no", "source": "none"}, {"front": "What runs on port 3389?", "back": "RDP (Remote Desktop Protocol)", "image": "no", "source": "none"}, {"front": "What is AFP? What port does it run on?", "back": "Apple Filing Protocol, it runs on port 548", "image": "no", "source": "none"}, {"front": "Wat runs on port 548?", "back": "Apple Filing Protocol (AFP)", "image": "no", "source": "none"}, {"front": "What port does SMB run on?", "back": "Server Message Block runs on port 445", "image": "no", "source": "none"}, {"front": "What runs on port 445?", "back": "Server Message Block (SMB)", "image": "no", "source": "none"}, {"front": "What port does WPA2 Enterprise run on?", "back": "Port 1812", "image": "no", "source": "none"}, {"front": "What runs on port 1812?", "back": "WPA2 Enterprise", "image": "no", "source": "none"}, {"front": "What port does DNS run on?", "back": "53", "image": "no", "source": "none"}, {"front": "What runs on port 53?", "back": "DNS", "image": "no", "source": "none"}, {"front": "What does SLP Mean and what port oes it run on?", "back": "Service Location Protocol runs on port 427", "image": "no", "source": "none"}, {"front": "What runs on port 427?", "back": "SLP (Service Location Protocol)", "image": "no", "source": "none"}, {"front": "What type of cable connects a DSL modem and the wall?", "back": "RJ-11 (Normal phone cable)", "image": "no", "source": "none"}, {"front": "", "back": "", "image": "no", "source": "none"}, {"front": "What is the speed of CAT 3 cables?", "back": "CAT3 cables run at 11mb/s.", "image": "no", "source": "none"}, {"front": "What is the speed of CAT5 Cable?", "back": "100 mb/s", "image": "no", "source": "none"}, {"front": "What is the speed of CAT5E cable?", "back": "Designed for 100MB/s, but was designed so well, it can go up to 1000 mb/s over short distances.", "image": "no", "source": "none"}, {"front": "What is the speed of CAT6 cable?", "back": "10 Gigabits/Second", "image": "no", "source": "none"}, {"front": "What is the speed of CAT6A?", "back": "Same as CAT6, 10 Gigabits/Second, but can be run up to 100 meters.", "image": "no", "source": "none"},  {"front": "What is the order for the 'A' RJ-45 wiring scheme?", "back": "Green/white, green, orange/white, blue, blue/white, orange, brown/white, brown.", "image": "no", "source": "none"}, {"front": "What is the order for the 'B' RJ-45 wiring scheme?", "back": "Orange/white, orange, green/white, blue, blue/white, green, brown/white, brown", "image": "no", "source": "none"},  {"front": "What is ECC RAM?", "back": "Error Correcting Code RAM detects and corrects any data errors it may encounter.", "image": "no", "source": "none"}, {"front": "What is the storage size of a CD-R?", "back": "700MB", "image": "no", "source": "none"}, {"front": "What is the storage size of a DVD?", "back": "A single sided DVD can store up to 4.7GB, while a double sided DVD can store up to 9.4GB.", "image": "no", "source": "none"}, {"front": "What is the storage size for a Blu-Ray Disc?", "back": "A Single sided Blu Ray can store up to 25GB of data, and a double sided BluRay can store up to 50GB of data", "image": "no", "source": "none"}, {"front": "What is a BD-R?", "back": "A Blu-Ray Recordable disc.", "image": "no", "source": "none"}, {"front": "What is the size of a BDXL?", "back": "A Blu-Ray XL Disc can store up to 128GB!", "image": "no", "source": "none"},];
+      //Here's a question template to copy and paste.
+      // {"front": "", "back": "", "image": "no", "source": "none"},
+      //For adding images to questions, try to add two fields to each questions, image and source.
+        //then in the function for next card, have an if statement that checkes if the currentCard.image is yes or no. If no, continue as normal, but if yes... set the currentCard.source as a variable, and use a different inner.HTML to append the image to the card.
+      
+
+      //Now lets get rolling
+      function generate() {
+          //First thing is first, let's add all the important questions every time
+          allTopicsArray = allTopicsArray.concat(importantQuestionsArray);
+          //Now, lets find out what was checked off
+          if ($("#visibleComputer").prop("checked")){
+              //if it was checked, add it to the allTopicsArray of questions
+            allTopicsArray = allTopicsArray.concat(visibleComputerArray);
+             //message console to see what type of questions are being added.
+            console.log("Adding Visible Computer Questions.");
+          } 
+          //was operational procedures checked?
+          if ($("#operationalProcedures").prop("checked")) {
+            //if it was, add the operational procedures questions to the full array
+            allTopicsArray = allTopicsArray.concat(operationalProceduresArray);
+            //console log that we've added these questions
+            console.log("Adding Operational Procedure Questions.");
+          }
+          //was ram checked?
+          if ($("#ram").prop("checked")) {
+            //add ram questions to full array
+            allTopicsArray = allTopicsArray.concat(ramArray);
+            //console log that we are adding these questions
+            console.log("Adding RAM Questions.");
+          }
+          //was power supplies checked?
+          if ($("#powersupplies").prop("checked")) {
+              //add power supply questions to full array
+            allTopicsArray = allTopicsArray.concat(powerSupplyArray);
+            //console log we are adding these questions
+            console.log("Adding Power Supply Questions.");
+          }
+          //was implementing hard drives checked?
+          if ($("#implementingHardDrives").prop("checked")) {
+              //add hard drive questions to full array
+            allTopicsArray = allTopicsArray.concat(implementingHardDrivesArray);
+            //console log we are adding these questions
+            console.log("Adding Hard Drive Questions.");
+          }
+          //was peripherals checked?
+          if ($("#peripherals").prop("checked")) {
+              //add peripherals questions to full array
+            allTopicsArray = allTopicsArray.concat(peripheralsArray);
+            //console log that we are adding these questions
+            console.log("Adding Power Supply Questions.");
+          }
+          //was building a PC checked?
+          if ($("#buildingPC").prop("checked")) {
+              //add building a PC questions to full array
+            allTopicsArray = allTopicsArray.concat(buildingAPCArray);
+            //console log that we are adding these questions
+            console.log("Adding Building a PC Questions.");
+          }
+          //was windows - under the hood checked?
+          if ($("#windowsHood").prop("checked")) {
+              //add windows under the hood questions
+            allTopicsArray = allTopicsArray.concat(windowsHoodArray);
+            //console log that we are adding these questions
+            console.log("Adding Windows - Under the Hood Questions.");
+          }
+          //was permissions checked?
+          if ($("#permissions").prop("checked")) {
+              //add permissions questions to full array
+            allTopicsArray = allTopicsArray.concat(permissionsArray);
+            //console log that we are adding these questions
+            console.log("Adding Users, Groups, and Permissions Questions.");
+          }
+          //was maintaining and optimizing an OS checked?
+          if ($("#maintainingOS").prop("checked")) {
+              //add maintaining OS questions to full array
+            allTopicsArray = allTopicsArray.concat(maintainingOSArray);
+            //console log that we are adding these questions
+            console.log("Adding Maintaing and Optimizing Operating Systems Questions.");
+          }
+          //if commandline is checked
+          if ($("#commandLine").prop("checked")) {
+              //add command line questions to full array
+            allTopicsArray = allTopicsArray.concat(commandLineArray);
+            //console log that we are adding these questions
+            console.log("Adding Command Line Questions.");
+          }
+          //is troubleshootingOS checked?
+          if ($("#troubleshootingOS").prop("checked")) {
+            //add troubleshooting OS questions to the array
+            allTopicsArray = allTopicsArray.concat(troubleshootingOSArray);
+            //console log that we are adding these questions
+            console.log("Adding Troubleshooting OS Questions.");
+          }
+          //is virtualization checked?
+          if ($("#virtualization").prop("checked")) {
+              //add virtualization questions
+            allTopicsArray = allTopicsArray.concat(virtualizationArray);
+            //console log that we are adding these questions
+            console.log("Adding Virtualization Questions.");
+          }
+          //was internet checked?
+          if ($("#internet").prop("checked")) {
+              //add internet questions to the array
+            allTopicsArray = allTopicsArray.concat(internetArray);
+            //console log that we are adding these questions
+            console.log("Adding Internet Questions.");
+          }
+          //was mobile devices checked?
+          if ($("#mobile").prop("checked")) {
+              //add mobile questions to array
+            allTopicsArray = allTopicsArray.concat(mobileDeviceArray);
+            //console log that we are adding these questions
+            console.log("Adding Mobile Device Questions.");
+          }
+          //is mobile device care checked?
+          if ($("#mobileDeviceCare").prop("checked")) {
+              //add it to the array!!
+            allTopicsArray = allTopicsArray.concat(mobileDeviceCareArray);
+            //console log that we are adding these questions
+            console.log("Adding Care and Feeding of Mobile Device Questions.");
+          }
+          //is printers checked?
+          if ($("#printers").prop("checked")) {
+              //add in those printer questions
+            allTopicsArray = allTopicsArray.concat(printersArray);
+            //console log that we are adding these questions
+            console.log("Adding Printer and Multifunction Devices Questions.");
+          }
+          //is securing checked?
+          if ($("#securingComputers").prop("checked")) {
+              //add securing computers questions to array
+            allTopicsArray = allTopicsArray.concat(securingComputersArray);
+            //console log that we are adding these questions
+            console.log("Adding Securing Computers Questions.");
+          }
+          //convert allTopicsArray to a string, to make parsing easier
+          JSON.stringify(allTopicsArray);
+          //lets see thos object objects
+          console.log("All Topics: " + allTopicsArray);
+          //call function to show first card
+          firstCard();
+      }
+      function firstCard(){
+          //console message to ensure proper performance
+          console.log("Let's Do This!");
+          //show the card section
+         $("#currentCard").show();
+          //randomly select an index for our current card
+         currentCardIndex = Math.round(Math.random()*allTopicsArray.length-1);
+         console.log("First card index: " + currentCardIndex);
+          //hide category selector
+         $("#categorySelector").hide();
+          //show Answer button
+         $("#showAnswer").show();
+         //set current card from allTopicsArray based on the card index created a moment ago
+         currentCard = allTopicsArray[currentCardIndex];
+         console.log(currentCard);
+         //create variable to target card div
+         var div = document.getElementById("currentCard");
+         //check for image
+         //and then append front of card for display
+         if (currentCard.image = 'no'){
+             div.innerHTML += currentCard.front
+         } else if (currentCard.image = 'question') {
+             insertion = "<img src='" + currentCard.source + "' style='height: 200px; width: 200px;'></img><br><p>"+ currentCard.front + "</p>";
+             div.innerHTML = insertion
+         } else if (currentCard.image = 'answer') {
+             div.innerHTML += currentCard.front
+         }
+      }
+      function showAnswer(){ 
+          //console message to ensure proper performance
+        console.log("Show me the Answer")
+         //create div variable
+         var div = document.getElementById("currentCard");
+         //clear current card
+         div.innerHTML = "";
+         console.log("visible text cleared.")
+         //append answer
+         answer();
+      }
+      function answer(){
+          //create div variable
+         var div = document.getElementById("currentCard");
+         //check for image
+         //and then append front of card for display
+         if (currentCard.image == 'no' || currentCard.image == 'question'){
+             div.innerHTML += currentCard.back
+         } else if (currentCard.image = 'answer') {
+              insertion = "<img src='" + currentCard.source + "' style='height: 200px; width: 200px;'></img><br><p>"+ currentCard.back + "</p>";
+             div.innerHTML = insertion
+         }
+         //manipulate button visibility
+         $("#showAnswer").hide();
+         $("#showQuestion").show();
+         //$("#nextCard").show();
+         $("#correct").show();
+         $("#incorrect").show();
+      }
+      function showQuestion() {
+          //hide question button
+          $("#showQuestion").hide();
+          //show answer button
+          $("#showAnswer").show();
+          //create variable for div
+        var div = document.getElementById("currentCard");
+         //clear div contents
+         div.innerHTML = "";
+         //append the question
+         question();
+      }
+      function question(){
+          //create variable for div
+        var div = document.getElementById("currentCard");
+        if (currentCard.image = 'no'){
+             div.innerHTML += currentCard.front
+         } else if (currentCard.image = 'question') {
+             insertion = "<img src='" + currentCard.source + "' style='height: 200px; width: 200px;'></img><br><p>"+ currentCard.front + "</p>";
+             div.innerHTML = insertion
+         } else if (currentCard.image = 'answer') {
+             div.innerHTML += currentCard.front
+         }
+          //append question to card display
+         div.innerHTML = currentCard.front;
+      }
+      function correct() {
+          //increment the numCorrect variable
+          numCorrect++;
+          //remove the current question from the overall lineup
+          allTopicsArray.splice(currentCardIndex, 1);
+          nextCard();
+      }
+      function incorrect() {
+          //increment numIncorrect
+          numIncorrect++;
+          nextCard();
+      }
+      //Generate the next card
+      function nextCard(){
+        //get a variable handle for currentCard div
+        var div = document.getElementById("currentCard");
+        //clear contents of currentCard  
+        div.innerHTML = "";
+        //message ourself to ensure success
+        console.log("Cleared text for next card");
+        //create an if statement to determine the remaining cards
+        //If there are no cards,
+        if (allTopicsArray.length <= 0) {
+            //set handle for if statement
+            var div = document.getElementById("currentCard");
+            //display that there are no cards remaining
+            div.innerHTML = "Sorry, there are no more cards. Please refresh the page."
+            //display the refresh button
+            $("#refresh").show();
+            //hide the other buttons
+            $("#correct").hide();
+            $("#incorrect").hide();
+            $("#showQuestion").hide();
+        //if there are more than 1 questions remaining, select one at random
+        } else if (allTopicsArray.length > 1){
+            //clear the contents of currentCard
+            currentCard = {};
+            //generate a random number based on availiable questions in the array
+            currentCardIndex = Math.round(Math.random()*allTopicsArray.length-1);
+            if (currentCardIndex <= 0) {
+                currentCardIndex = 0;
+            }
+            //cosole log the current card index
+            console.log("current card index: " + currentCardIndex);
+            //hide the buttons for correct/incorrect/showQuestion
+            $("#showQuestion").hide();
+            $("#correct").hide();
+            $("#incorrect").hide();
+            $("#nextCard").hide();
+            //display showAnswer button
+            $("#showAnswer").show();
+            //set the currentCard to the allTopicsArray at the currentCardindex index
+            currentCard = allTopicsArray[currentCardIndex];
+            //console log the current card (this will probably just show as object object)
+            console.log("current Card " + currentCard);
+            //create a handle for the div currentCard
+            var div = document.getElementById("currentCard");
+            if (currentCard.image = 'no'){
+                div.innerHTML += currentCard.front
+            } else if (currentCard.image = 'question') {
+                insertion = "<img src='" + currentCard.source + "' style='height: 200px; width: 200px;'></img><br><p>"+ currentCard.front + "</p>";
+                div.innerHTML = insertion
+            } else if (currentCard.image = 'answer') {
+                div.innerHTML += currentCard.front
+            }
+          //If there is only 1 question left, use that question  
+        } else if (allTopicsArray.length == 1) {
+            //clear the contents of currentCard
+            currentCard = {};
+            //hide the buttons for correct/incorrect/showQuestion
+            $("#showQuestion").hide();
+            $("#correct").hide();
+            $("#incorrect").hide();
+            $("#nextCard").hide();
+            //display the Show Answer button
+            $("#showAnswer").show();
+            //set currentCard to the 0 index of allTopicsArray
+            currentCard = allTopicsArray[0];
+            //console log the currentCard
+            console.log("current Card " + currentCard);
+            //get a handle for the currentCard div
+            var div = document.getElementById("currentCard");
+            //append the front of the currentCard to the div
+            div.innerHTML += currentCard.front;
+        }
+      }
+    </script>
+</body>
+</html>

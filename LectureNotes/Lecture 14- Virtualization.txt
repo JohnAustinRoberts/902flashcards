@@ -1,0 +1,85 @@
+Virtualization Basics
+  -when you have a computer virtually built inside another computer
+  -emulation is different
+    -this uses software to imitate hardware
+    -Virtualization uses a system actual hardware
+  -Virtualization saves power
+    -can run multiple machines on one system, saving power
+    -this also allows for consilidating hardware
+  -System recovery is easy
+    -each time you shut down the virtual machine, it is saved as a file on the host system
+  -it's very handy for research
+    -running a virtual machine can help you assist clients with different versions of OSs
+  -Hypervisor
+    -the program that runs and maintains the virtual machines
+    -this comes with windows
+    -two types of hypervisor
+      -bare metal
+        -runs on thumbdrive and boots computers
+      -hosted on main computer
+
+Your first virtual machine
+  -Host Based Hypervisor
+    -VMware
+      -Usually not free
+    -Microsoft
+      -Usually included in windows
+    -Oracle VirtualBox
+      -free
+      -create a virtual machine
+        -set OS type
+        -set hardware limits
+        -you'll then need to install the OS
+          -can be optical disc, iso, or any other normal boot media
+        -snapshot
+          -this creates a copy of the virtual system as it is
+          -do this before any big changes
+          
+Infrastructure as a Service (IaaS)
+  -renting an infrastucture as a service
+    -AWS is a good example of this
+    -Setting up a web server on AWS!!!
+      -go to ec2
+        -launch an instance
+          -pick free tier
+            -windows server 2012 r2 base
+            -set virtual hardware limit
+            -configure security group
+              -set to RDP (automatically) and set source to my IP so only my computer can access the server
+              -add a rule
+                -select http from anywhere
+        -open remote desktop protocol and enter the ip address
+          -this will connect you to the windows server running on your virtual machine where you can configure your website
+
+Platform as a Service (PaaS)
+  -takes care of full deployment of a website or web application
+  -Heroku
+    -open command prompt
+      -go to folder containting site
+      -install heroku toolbelt
+      -enter command heroku create myappnamehere
+        -creates heroku app and displays site name
+      -git push heroku master
+        -sends files up and starts site
+      -heroku open
+        -will open the web app
+    -create a new app
+      -upload the file
+        -deploy
+          -go to addons, add storage
+    
+Software as a Service (SaaS)
+  -Does away with opticla media
+  -Subscription based applications
+    -Microsoft Office 365
+
+Cloud Ownership
+  -AWS is a public cloud
+    -anyone can put data on this cloud
+  -private clouds 
+    -only you can access private cloud
+  -community cloud  
+    -only you and those you invite can access the community cloud
+  -hybrid cloud
+    -uses both public and private clouds, seperating data
+

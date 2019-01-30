@@ -1,0 +1,87 @@
+Intro to Users and Groups
+  -User Accounts
+    -allows for setting different permissions for visibility on a single computer
+    -NT File System (NTFS)
+      -designed from ground up to show how to access resources of computer
+      -Authentication
+        -Username and Password
+        -gives Access to the resouces of the computer
+      -Authorization
+        -NTFS Permissions
+        -defines what we can do on a folder by folder basis
+    -Groups
+      -set users into groups to assign permissions
+
+Creating users in Windows Vista/7
+  -very easy to do
+  -Open control Panel
+  -User Accounts
+  -Manage another Account
+  -Create a new Account
+    -enter account name
+    -set as standard user or admin
+    -boom, done
+  -You can also set password or parental controls
+  -Parental controls
+    -can set time limits
+    -which games you can play
+    -and allow or block certain programs
+  -Can open control panel > administrative tools > computer management > local users and groups
+    -This allows you to set groups for the user
+
+Windows 8/8.1
+  -brought several changes to how we create users
+  -open control panel
+  -administrative tools
+  -computer managerment
+  -local users and groups
+  -We can also open the charms bar, go to settings>pc settings> accounts
+    -this can allow us to connect to a microsoft account
+
+Sharing Files and Folders
+  -Assigning Permissions to Users and/or groups
+  -permissions inherit from folders into files and subfolders (turn this off with the deny button)
+    -This means that if you have access to the parent folder, you'll have access to all the subfolders included therein
+  -To actually assing the permissions:
+    -Assign the users to groups in the local users and groups under computer management
+    -We right click on what we want to set permissions on, select properties, and then the security tab
+      -Enter the object names to select (username) and click check name
+      -set permissions as you please
+       -Folders
+        -Full Control
+          -can do anything you want
+        -Modify
+          -Can read, write, and delete files and subfolders
+        -Read & Execute
+          -can see contents and run programs in that folder
+        -Read
+          -can see file contents and read any file in the folder
+        -Write
+          -Can create new files and folders
+        -Special Permissions
+        -List Folder Contents
+          -Allows to show the contents of folders & subfolder
+       -File
+         -Full Control 
+           -can do anything you want
+         -Modify
+           -can read, write, or delete file
+         -Read/Execute
+           -can read and run the file
+         -Read
+           -can read the file
+         -Write
+           -can open and write to the file
+  -Copying and Moving NTFS Objects
+    -When moving from one drive(c:) to another (e:)
+      -When Copying from one drive to another
+        -The original retains permissions, but the copy has no permissions
+      -If we move it from one drive to the other 
+        -the original is gone, and the new version on the second drive will not have permissions
+    -When moving or copying inside the same drive
+      -Copying
+        -original keeps permissions, copy loses permissions
+      -Moving
+        -The original is gone, but the new one keeps the ntfs permissions
+    
+      

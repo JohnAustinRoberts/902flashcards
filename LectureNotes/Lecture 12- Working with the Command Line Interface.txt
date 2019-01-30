@@ -1,0 +1,272 @@
+Windows Command Line Basics
+  -Command Line Interface (CLI)
+  -win+q cmd to open
+  -directory and folder are interchangable terms
+  -Some commands are locked, unless you run with admin privileges
+  -List of commands
+    -HELP
+      -gives a list of possible options
+    -CLS
+      -clears output
+    -EXIT
+      -closes command prompt
+    -DIR
+      -show contents of current folder  
+      -switches
+        DIR /w
+          -w is wide, shows with different output
+        DIR /p
+          -gives one page at a time to see all detail without scrolling up
+    -Control+C 
+      -closes interior window and gets back to regular prompt
+    -CD
+      -change directory
+      -switches
+        CD\
+          -takes you to root directory
+        CD ..
+          -takes you back a level
+        CD nameOfDirectory
+          -move to that directory
+    -Switches enable command options
+      -CLS /?
+        -gives help for CLS command
+    
+Working with folders and files
+  -Folders
+    -MD c:\timmy 
+      -this would create a folder called timmy at the root directory
+      -can also just do MD nameOfNewFolder to create folder at current level
+    -RD nameOfDirectory
+      -removes directory
+  -Files
+    -Copy syntax
+      -copy "fileName" [destination]
+      -*
+        -syntax for all files matching (think sql)
+      -*.*
+        -syntax for everything
+    -Delete syntax
+      -del "fileName"
+      -erase "fileName"
+    -Move syntax
+      -move "filename" [destination]
+
+Fancy Copying
+  -xcopy
+    -old school fancy copying
+    -copies files and folders 
+    -syntax
+      xcopy fileName [destination] /s /e
+        -/s means copy every subdirectory that is populated
+        -/e means copy subdirectoroies that are empty as well
+  -robocopy
+    -super fancy copier
+    -it's much faster than xcopy
+    -will also copy windows system folders
+    -no *.* with robocopy
+    -syntax
+      robocopy .\documents d: /s /e 
+        this would grab everything from the documents folder and move it to the d: drive
+
+Working with Drives
+  -format
+    -this command will format drives from the command line
+    -this is frickin dangerous and can only be done as an administrator
+    -syntax
+      format d:
+        -this would reformat the d drive
+    -can add /q flag for quick formatting
+  -partitioning drives from the command line
+    -diskpart
+      will bring up diskpart interface
+      -list disk
+        will show partitions
+      -select disk Num
+      -list partition
+      -select partition Num
+      -delete
+        -will delete the partition
+  -chkdsk
+    -this will check the individual blocks to verify that they are working correctly
+    -can only work on an unmounted drive (so if used on C:/, it will need to reboot)      
+    -switches
+      -/f 
+        -fixes files that it finds with errors
+      -chkdsk d: /f /x
+        -immediatly unmounts d: drive, checks files, and fixes any errors
+        -don't use on boot drive
+  -sfc
+    -system file checker
+    -tool that checks critical files of windows system and can use your DLL cache to fix any errors it finds
+    -switches
+      -/scannow
+        -initiaites the scan
+
+Advanced Windows Command Line
+  -gpupdate
+    -forces immediate application of group policy changes
+  -gpresult
+    -displays group policy information
+    -switches
+      -/q
+        shows all commands
+      -gpresult /user Julio /v
+        -will check everything for the user Julio
+        -the /v is for verbose and gives more detailed information
+  -tasklist
+    -run in system32 folder
+    -shows current tasks and processes that are running
+    -need the PID (process ID) to kill the program
+  -taskkill
+    -shuts down processes 
+    -syntax
+      taskkill /pid 7864
+        -kills whatever task's PID is 7864
+
+Linux Command Line Basics
+  -pwd
+    -list current working location (where am I?)
+  -ls
+    -same as list in Windows
+  -ls -l
+    -this will show everything will details
+  -cd
+    -this command is the same as it is in windows
+  -VI
+    -opens text editor
+    -syntax
+      vi bob.txt
+        -this would create a txt file called bob and open the text editor
+        -you then need to go to input mode
+          -use letter i
+            -now you can type things
+        -to escape gets you back to commande mode
+          -in this mode,
+            -the h key will move your cursor left
+            -the j key will move your cursor down
+            -the k key will move your cursor up
+            -the l key will move your cursor right
+          -/
+            -this will list all the commands you can use
+          -w
+            -saves
+          -:q
+            -quits the editor
+  -shutdown
+    -must run from root or with sudo
+  -sudo
+    -declares yourself a super user and allows for more dangerous commands 
+
+Working with files and folders in Linux
+  -cp
+    -copy command 
+    -syntax
+      cd * ../backup
+        this would copy everything from the current directory and copy it to the backup folder which is located up one leve
+  -mv 
+    -move command
+    -works exaclty the same as cp command but doesn't leave the original
+  -rm 
+    -delete file command
+  -rmdir
+    -remove directories
+  -mkdir 
+    -makes directories
+  -dd
+    -copies disks and partitions
+    -lsblk
+      -lists all drives and partitions
+    -sudo dd if=/dev/sda of=/dev/sdb
+      -sets input file as sda and of output file as sdb
+      -this will copy the entire sda drive and clone it to sdb
+    -sudo dd if=/dev/sda1 of=~/backup.img
+      -this will copy the partition 1 of sda to a backup image on the root directory
+    -sudo dd if=/dev/urandom of=/dev/sda bs=4k
+      -this will wipe out the sda hard drive 
+      -bs=4k will set the block size to 4k (the most common used by drives today)
+
+Linux File Permissions
+  -have three permission values 
+    -the first is for the creator/owner of the folder/file
+    -the second is for groups
+    -the third is for others
+    -files
+      -r 
+        -allows to read file
+      -w
+        -write to file
+      -x
+        -allows to run the file
+    -folders 
+      -r
+        -view contents
+      -w
+        -create or delete files in directory
+      -x
+        -allows to cd to a different directory
+    -chmod
+      -allows us to change permissions
+      -two ways to use this
+        -Version 1
+          -chmod o= RunMe
+            -this would set the other permissions to no permissions on the RunMe file/folder
+          -chmod g=rx RunMe
+            -this sets it so that group user would have read and execute rights, but not write permissions
+          -chmod a=wrx RunMe
+            -this sets all permissions to read write and execute for RunMe
+        -Version 2
+          -the old-school way
+          -this uses binary values
+            -r=4
+            -w=2
+            -x=1
+          -these values are additive
+            -rw=6
+            -rx=5
+            -wx=3
+            -rwx=7
+          -chmod 777
+            -this sets total permissions open
+          -chmod 760
+            -this sets the creator/owner to rwx, groups to rw-, and other to no permissions
+    -chown
+      -change ownership
+      -sudo chown root RunMe
+        -this changes the owner of the RunMe file/folder to root
+    -passwd 
+      -allows to change password
+      -sudo passwd
+        -changes password of current account
+    
+Misc Linux Commands
+  -grep
+    -utility to serach for text strings from input
+    -grep "error" lsi_0317.log
+      -will search file lsi_0317.log for the word error and output findings
+    -grep -r "error" /var/log
+      -this will search for every file in the log folder for the word error and output it's findings
+  -ps
+    -shows running processes for current user
+    -ps aux
+      -shows all running process for users on system   
+    -ps aux | grep "evolution" 
+      -shows all running process that contain the phrase evolution
+  -ifconfig/iwconfig
+    -ifconfig
+      -shows wired connection info
+    -iwconfig
+      -shows wireless connection info
+  -apt-get
+    -is a package manager to search for and install an application
+    -needs sudo to run 
+    -sudo apt-get update
+      -refreshes the package cache
+    -sudo apt-get upgrade
+      -upgrades installed programs on the system
+    -sudo apt-get install htop
+      -searches for htop and downloads and installs all the htop packages
+    -sudo apt-get remove htop
+      -this would uninstall htop
+
+

@@ -1,0 +1,150 @@
+Understanding Partitioning-
+  -Taking one physical drive and seperating it into multiple virtual chunks
+  -Boot Partition
+  -Recovery Partition
+  -To do
+    -Create the partition
+    -Make it accessible to the file system by a process called Mounting
+      -this assigns a letter value to the virtual drive
+  All drives have at least one partition
+  -Two types of Partitons
+    -Master Boot Record (MBR)
+      -Older
+        -came out with first PCs
+      -Boot loader
+        -Located at LBA0 on the hard drive, tells system where to go to find OS (Active Partition)
+      -Partition Table
+        -broken into 4 pieces
+        -Max of 4 primary partitions
+      -Settings Table
+        -Only OS can get to
+      -Max partition size is limited to two terabytes
+    -GUID Partition Table (GPT)
+      -Much Newer
+      -Protective MBR  
+        -located at LBA0 on hard drive
+        -If system only reads MBR, it will us that part
+        -if not, it will skip over to the Primary GPT Header
+      -Primary GPT Header
+        -Boot Loader
+      -Secondary GPT Header
+        -backup of GPT
+
+Basic Partitioning
+  -MBR Partitioning
+    -Max of 4 partitions of 2 TB
+    -To create Single Partition
+        -Go to disk management
+        -find unallocated
+        -New Simple Volume
+            -Wizard sees max size
+            -choose how much you'd like to use
+            -Then assign a drive letter/folder name to mount it
+            -Format the drive, typically using the default settings
+            -Voila!
+    -To Create Multiple Partitions
+        -Go to disk management
+        -find unallocated disk
+        -right click and select New Simple Volume
+          -Wizard shows max size
+          -Choose about half
+          -finish out wizard with defaults
+          -when disk management shows again, you'll see the unallocated remainder
+            -you can then repeat the above process to format the new partition
+    -Extended Partition and logical volumes
+      -Primary Partition is what most are called
+      -when a 4th partition is created, it's created as a extended partition and logical drive
+        -if the volume is deleted, it will leave the extended partition
+        -You can create multiple logical drives in the extended partition, thus getting around the 4 partition limit of MBR
+    -To delete Partitions
+      -Right click on the partition and select Delete Volume
+      -This is a permanent action, and will remove any data that was stored on that partition
+  -(GUID Partition Table) GPT Partitioning
+    -Globally Unique Identifier (GUID)
+      -128 bit long string of numbers 
+    -The hard drive will usually come showing as 2 drives for MBR cut off after 2 terabytes
+      -right click and select Convert to GPT Disk
+      -drive will show as one unallocated amount
+      -repeat the same exact process as MBR to create the partition
+      -Note though, that when you create your 4th partition, it doesn't create an extended partition with logical drives, it's just regular partitions
+
+Dynamic Disks
+  -Predate GPT, but after MBR
+  -In windows Disk Manager
+    -convert to Dynamic Disk
+      -can make as many partitions that you want
+      -Same process as basic to create simple volumes
+      -Spanning
+        -create a volume across multiple drives
+        -choose new drive right click and New Spanned Volume
+        -select the additional drives to span to
+        -Set the size of the drive and format normally
+        -this will convert the basic disks to dynamic
+        -wahoo!
+        -It's a little risky though, the second drive will not be written to until the first drive is full, and if either drive fails, the whole of the data is lost
+          -RAID 0 is a much better setup
+     -only way to convert back to basic is to delete all the volumes
+
+File Systems
+  -File Allocation Table (FAT) file System
+    -oldest system
+    -had a 1 to 1 list of each sector and what was stored there
+    -Each sector stored 512 Bytes
+      -65,536 Entries in each byte
+    -only 32 Megabytes total could be processed
+    -No File Permissions
+      -nothing you could do to lock files between users 
+  -Clusters are multiple sectors
+    -once drives became large enough that a 1 to 1 was not possible, sectors are clustered together for addressing
+  -FAT32
+    -Uses 32-bit addressing
+       -Up to 2tb partition
+    -Max file size 4gb
+    -Still popular on flash media
+    -no file permissions
+  -exFAT (aka FAT64)
+    -Great for large flash memory
+    -up to 128 Petabyte and File size!
+  -Linux and Apple
+    -ext3
+      -older linux file system
+      -32TB partitions
+      -Unix-Style Permissions
+    -ext4
+      -linux fs
+      -vastly improved ext3
+        -improved performance and data security
+      -1 Exabyte partitions
+    -HFS+
+      -Apple FS
+      -8 EB partition size
+      -Linux permissions
+    -NTFS (New Technology File System)
+      -Gold Standard of file system
+      -Very detailed permissions 
+      -very good data security
+      -supports up to 256 TB partitions
+
+Storage Spaces
+  -Came out with Windows 8
+    -works the same in 10
+  -open disk management
+  -open storage spaces
+    -through control panel
+  -create a pool (minimum of 1, up to alot of drives)
+  -4 resliencies
+    -1 simple (jbod) all one big disk
+    -2 way mirror
+      -min 2 drives
+      -mirrored
+    -3 way mirror
+      -similar to raid 6
+      -min 5 drives
+      -can lose up to 2 drives and still recover
+    -Parity 
+      -basically raid 5
+      -need 3 drives
+  -Thin Provisioning
+    -overstate the size of the drive to leave more room in the drive to add later drives
+    -reports to everything that it is the larger value
+  

@@ -1,0 +1,41 @@
+Touring Android
+  -Owned by Google
+  -Android is an open source operating system
+  -Has a software developers kit
+    -can apply your own code to the OS
+  -Different launchers and interfaces available
+  -Google Play Store
+    -where to download apps
+  -Settings
+    -all configurations are done here
+  -Okay Google
+    -this is the voice activation phrase
+  -Google Pay
+    -pay services with phone
+  -Emergency Alerts
+    -can recieve amber alerts and has 911 connectivity
+
+Touring iOS
+  -Closed Source Operating System
+    -creat your own apps with software development kits
+      -these then have to go through a robust vetting service 
+  -Settings 
+    -all configuration done here
+  -App Store
+    -to install apps
+  -Apple Pay
+    -ios mobile payment service
+  -Emergency Alerts
+    -can recieve amber alerts and has 911 connectivity
+  -Siri voice assitant
+
+Touring Windows Mobile
+  -Owned my Microsoft
+  -Metro style interface similar to windows 8
+  -settings
+    -all your configurations are done here
+  -cortana voice assitant
+  -Windows Store
+    -place to get apps
+    -not as many apps as ios or android
+

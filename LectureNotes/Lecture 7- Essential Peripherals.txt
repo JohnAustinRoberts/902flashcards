@@ -1,0 +1,8 @@
+Configuring USB
+  -Number one rule
+    -install device driver FIRST before plugging in device
+  -Device Manager
+    -Universal Serial Bus Controllers dropdown may show an issue if the drivers are out of date or are turned off
+    -can rightclick and go to properties (at least on controllers) for more info about the device
+      -can show power usage, problem codes, driver info, etc
+    

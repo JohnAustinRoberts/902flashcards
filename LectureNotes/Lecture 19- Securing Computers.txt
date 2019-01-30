@@ -1,0 +1,181 @@
+Physical Security
+  -Lock your office door
+  -ID Badges to allow personnel in or out
+  -Cable locks for laptops
+  -location tracking software
+    -lojack
+  -Dumpster Diving
+    -USE A SHREDDER!
+  
+Passwords and Authentications
+  -Strong Passwords
+    -about 8 characters long
+    -upper and lowercase
+    -numbers and characters
+    -To ensure there is a strong password lets go to Local Security Policy
+      -control panel applet
+      -administrative tools
+      -account policies
+        -password policy
+          -enforce password history
+            -can't reuse previous passwords
+          -maximum password age
+          -minimum password length
+          -can set complexity requirements
+      -Account Lockout Policy
+        -how many failed attemps before lockout
+  -Multifactor Authentication
+    -something you know
+      -username/bassword
+    -something about you
+      -biometrics
+        -fingerprint/retina scanner
+    -something you have
+      -RSA Keys
+        -smart card
+        -key fob
+        -RFID
+        -Infrared
+        -Steam Guard
+    
+Protecting Against Snoops
+  -Shoulder Surfing
+    -when people watch over your shoulder to see your data
+    -Privacy Filters are incredibly helpful 
+  -Don't put your password attached to your laptop
+  -Put passwords on your screensaver
+    -make sure to say on resume display logon screen.
+  -logout or lock your computer when you walk away
+  -Watch out for phishing
+    -where scammers send you emails looking for significant information
+  -User Education
+    -make sure the people who's computer you are supporting are aware of phishing
+
+Malware
+  -Virus
+    -piece of executable code that connects to boot or an executable data
+      -they do two things
+        -propagate
+          -make more
+        -activate
+          -do their dirty work
+  -Worm
+    -A virus that doesn't use cd's or dvds
+    -it is transmitted via internet
+  -Trojan
+    -a trojan a bad program that pretends to be something it isnt
+    -does not propagate automatically
+  -Adware
+    -popups 
+    -would watch your websites and give you alternative sites
+  -spyware
+    -Spyware watches the types of websites you use and picks up information
+  -Greyware
+    -catchall category for those outside of the above
+
+Anti-Malware Applications
+  -Microsoft Security Essentials
+    -Main Job is monitoring the system 
+      -will stop and quarantine any questionable files
+      -must keep it up to date
+    -can do a manual scan 
+      -goes through your hard drive looking for malware
+  -Third Party Options
+    -Avast is a great option
+
+Anti-Malware Practices
+  -Quarantine the system
+    -remove it from the network
+    -turn off wifi
+    -disconnect the machine
+    -gather any media (thumb drives/cds) near the machine
+  -Use anti-maleware program 
+    -usually have 3 options to do with the virus
+      -remove
+        -deletes the file
+      -allow
+        -allows the file to exist
+      -quarantine
+        -puts file into secure file for later deletion
+  -If that doesn't work
+    -boot into safe mode and try again
+  -If that doesn't work
+    -get bootable thumb drive or live cd
+      -you'll boot from these drives 
+      -install anti-malware on the drive
+      -or use AVG to create a Rescue CD
+      -these boot outside of the normal system and you can clean your drives safely
+  -Remember to turn off system restore points before cleaning!
+
+Hardware Firewalls
+  -A box that sits between your network and the internet
+  -sometimes built into the router can also be another box
+  -Stateful Packet Inspection (SPI)
+    -Will allow/block things based on current conditions
+    -configured via web browser
+      -can block cookies
+      -can block java
+      -can block proxy
+      -can filter anonymous incoming requests
+  -Stateless Packet Inspection
+    -Configured via Access Control List (ACL)
+      -connect to your router's browser interface
+        -different ones can be configured differently
+        -can block ports
+        -can set time limits for computers
+        -can block sites
+        -can block by MAC address
+    -called dumb firewalls
+  -Use both firewalls in conjuction for best protection
+
+Software Firewalls
+  -Programs that sit on individual hosts and monitor network traffic on each host
+  -Control Panel Applet
+    -Windows Firewall
+      -Can configure firewall settings depending on location
+        -Domain/Private/Public
+          -Can turn firewall on or off
+          -blocks all connections to apps that are not on the list of allowed apps
+            -Exceptions are openings in the firewall
+          -shows active domain network connection
+          -Can change notification state
+        -can restore defaults
+        -Advanced Settings
+          -can filter by program name trying to make connection
+          -Inbound Rules
+            -Programs trying to bring things in from the internet
+            -check a programs properties to configure
+              -protocols and ports
+                -can set port to open
+              -Programs and Services
+                -shows more detail about the program 
+          -Outbound Rules
+            -Things going out from the computer
+    -Usually default exceptions are good
+      -the Windows Security Alert Allow access button (like installing five9)
+    -Intrusion Detection System (IDS)
+      -Will detect and notify you about it
+    Intrusion Prevention System (IPS)
+      -Will detect and do something about it
+
+Data Destruction
+  -Erase it
+    -using erasing tools
+      -low level formatter
+        -from manufacturer
+      -drive-wiping tool
+        -much more common
+        -can still use the drive afterward
+  -magnets
+    -called Degaussing
+    -destroys the drive
+  -physically destroy the drive
+    -beat that shit to smithereens with a hammer!
+
+Incident Response
+  -Incident Response Leader
+    -If something happens, know who to call
+    -Document the scene
+    -Maintain chain of custody
+    -Fill out the incident response form
+

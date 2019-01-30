@@ -1,0 +1,103 @@
+The Zen of Computer Maintenance
+  -The majority of maintenance is done automatically in the background
+    -Defragging Hard Drive
+    -Running Backups
+    -Updating Operating System
+  -Checking for autostarting programs is something you'll have to do manually
+
+Patch Management
+  -Windows Update
+    -Control Panel > Windows Update
+     -check for updates
+       -Important Updates
+         -These should be installed
+       -Optional Updates
+         -Can be installed if needed, but not required
+     -install the updates 
+     -Note you can also retore hidden updates to show anything you may have missed
+  -Patch Management
+    -Being cautious about updating patches when in large organizations
+
+Autostarting Programs in Windows
+  -To adjust which programs are autostarting when you boot windows
+    -Windows Vista/7
+      -Run msconfig.exe
+       -brings up system configuration window
+      -click Startup tab
+        -if unchecked, it won't boot on start
+        -if checked, it will
+    -Windows 8/8.1/10
+      -run msconfig.exe
+      -click startup tab
+      -open task manager
+        -look at startup tab
+        -enable or disable the autostart functionality of each program
+      -www.sysinternals.com
+        -look for program called autoruns
+        -This will show every place you have an autostarting program
+
+Meet the MMC
+  -Microsoft Management Console
+    -uses .msc files
+  -open by searching MMC
+  -This allows us to open several control panel applets 
+  -you can save it to your desktop and have your most utilized tools easily accessible
+  -most common ones we'll see
+    -diskmgmt.msc    >   Disk Management
+    -perfmon.msc     >   Performance Monitor
+    -services.msc    >   Services
+    -lusrmgr.msc     >   Local Users and Groups
+    -secpol.msc      >   Local Security Policy
+    -gpedit.msc      >   Local Group Policy
+
+Installing and uninstalling programs - Windows
+  -Installing is pretty straightforward, just run the install program
+  -go to programs and features/add or remove programs
+    -right click the program you'd like to uninstall and click uninstall
+  -Turn windows features on or off
+    -lets you turn on or off optional additional windows features
+
+Windows System Restore
+  -Takes a restore point to backup your computer and we can reset the computer back to these restore points
+    -How to turn it on
+      -Control Panel
+      -System
+        -System Protection
+          -turn it on or off
+    -The whole idea is based on Volume Shadow Copy
+     -Open My Computer > C:
+       -Show hidden files
+       -Don't hide protected OS files
+       -System Volume Information (this is the storage space for Volume Shadow Copy) 
+         -This stores changes on the drive, and registers the changes
+    -Restore points can be created
+      -automatically by windows
+      -automatically when a program is installed
+      -manually by going into system protection
+    -In windows 8 and later, we can check which apps will be changed
+    -windows recovery environment will look for your most recent restore points
+
+Windows Backup
+  -Tools built into windows to help with catastrophic failure
+  -Windows Vista
+    -Control Panel
+      -backup and restore center
+        -backup files
+          -backups user data only (not windows or programs)
+        -backup entire computer
+          -creates a system image 
+            -this is a block level copy of your windows partition
+  Windows 7
+    -Control Panel
+      -backup and restore
+        -create system image is an option here
+        -set up windows backup
+          -tape is no longer supported as a storage media
+          -can do recommended (data files)
+          -can set it on your own, and add applications to data, but will still have to reinstall windows
+  Windows 8.1
+    -Backup was replaced by file history
+      -can still create a system image
+  Windows 10
+    -brought back Backup, in addition to file history
+

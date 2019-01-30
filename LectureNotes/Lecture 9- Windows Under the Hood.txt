@@ -1,0 +1,69 @@
+What is the Registry?
+  -a common storage area to store everything
+  -to get there
+    -enter regedit or regedt32
+    -you'll have 5 root keys
+      -HKEY_CLASSES_ROOT   
+        -This contains everything on your computer
+      -HKEY_CURRENT_USER 
+        -Everything about current user
+      -HKEY_LOCAL_MACHINE
+        -Info about this computer
+      -HKEY_Users
+        -a list of all the accounts on the computer
+      -HKEY_Current_CONFIG
+        -Current setup of system
+  -before editing the registry, make a backup by file > export
+  -right click on the saved file and select merge to reintroduce the original settings
+
+The Boot Process
+  -winload.exe is the program that actually loads windows (it resides in This PC/Local Disk C:/Windows/System32)
+  -but how do we get there?
+    -the BIOS points to the active partition on the drive with the OS on it, determined by boot order
+    -System Reserve Partition is the partition that holds the boot files
+    -Bootmgr's job, find windload.exe
+      -it does that using BCD (Boot Configuration Data)
+        -this stores the information that points to the winload file
+        -you can't easily look at this file, as it's not a text file, but you can use third party tools, like EZBCD to look at the file.
+    -command line command bcdedit  will show you the same info as EZBCD, but in a text output format. (this is on the A+)
+    -If you have a system with a small drive, you may not have a system reserve partition, everything will just be in one partition
+    -If you're using UEFI, you'll need to load winload.efi inseat of .exe
+
+Processes
+  -Everything you do in windows is a process
+  -There are two types of processes, applications and services
+  -Applications vs services
+    -Applicastions are things we see
+    -Services are things we dont
+      -these are long running programs. they run from boot to shutdown
+
+Dealing with Processes
+  -Task Manager
+    -This is where you fix issues with processes
+    -there are several ways to get there
+      -lft ctrl + shift + esc
+      -search task manager
+      -ctrl+alt+del and select task manager
+      -win+r taskmgr
+    -Applications
+      -lists open applications and their status
+    -Processes
+      -shows everything that's running right now
+      -this is where you'll right-click and end task
+  -Command Prompt
+    -tasklist (Comptia calls it t-list, but that's wrong.)
+      -this command in the cmd prompt will show all running processes and thie PID (Process Identifier)
+
+Services
+  -Critical to Windows
+  -places to see these
+    -Task Manager
+    -Service Manager (services.msc)
+      -this will show you all of the services you have and their statuses
+      -here we can start the service/stop the service, a description, the status, and the startup type. We can also adjust properties of services here
+
+Windows 8 task Manager
+  -Task Manager improved with Windows 8
+    -this assed the processes tab to give you a visual representation of your computer's performance
+  -You can use resource manager to get even more granular details
+

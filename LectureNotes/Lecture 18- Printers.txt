@@ -1,0 +1,47 @@
+Installing Local Printers
+  -Local printers are connected via a cable to a computer
+  -You'll need print drivers
+    -you can get these from the manufacturer's website
+    -or you can use the windows default driver
+  -Printer Preferences
+    -Portrait vs Landscape
+    -Set layout Type
+    -duplex
+      -double sided printing
+    -graphics settings 
+      -dots per inch
+      -font configuration
+      -collation and print order
+        -printing 12345,12345,12345 
+  -Printer Properties
+    -can set location and comment about the printer
+    -can share the printer
+    -can set ports, but usually this is done automatically.
+      -used to be used with serial and parellel ports
+    -can set IP address for computer
+  -Run the installation disc that comes with the printer to see any extra features you have
+    -these can have driver managers and diagnostic scanners
+  -print a test page!
+
+Installing Network Printers
+  -Network printers act as their own host
+  -Needs an IP address
+  -Connect to the Printer and configure the wireless network
+    -usually done through a application that comes with the printer
+    -once you have an IP address, enter the IP address into a web browser to get to the full printer interface
+  -LPR 
+    -way a printer talks to printer  
+  -SLP (Service Location Protocol - Port 427)
+    -used for older stuff
+  -Universal Plug-N-Pluy (UPNP)
+    -local connectioins
+  -SNMP (Simple Network Management Protocol)
+    -collects information and statistics from network devices
+    -Uses Ports 161 and 162
+  
+Cloud Printing
+  -Google Cloud Printing
+    -ways to print without a full configuration on each new device
+    -Make sure your printer suppoerts cloud printing
+    -set up in your printer configurations
+    

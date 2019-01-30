@@ -1,0 +1,235 @@
+Touring Windows Vista
+  -New features Vista brought for each item
+    -Desktop
+      -Start Button
+      -Title Bar (In a window, the top bar that labels the window)
+      -System Tray/Notification Area (symbols down in the bottom right hand corner)
+      -Sidebar 
+        -gadgets you could add to your desktop
+        -the problem with gadgets was security issues
+    -User Account Control (UAC)
+      -Designed to keep people from doing dangerous things unless they are an administrator
+      -How to turn UAC on and off in Vista
+        -open control panel
+        -go to classic view
+        -find User Accounts
+        -Turn User Account Control on or off
+        -Uncheck the option
+    -The Control Panel
+      -open the control panel
+      -go to classic tool
+      -open administrative tools
+        -Memory Diagnostics Tool
+          -This can test and identify bad RAM in your system
+          -Has to restart computer to fire
+      -go back to the full classic view control panel
+      -Security Center
+        -Before this, security was spread across multiple applets
+        -Vista combined these security options into an easy-to-use one-stop-shop for security
+        -Only lasted through Vista
+
+Touring Windows 7
+  -Came out in 2009
+  -most common legacy windows
+  -Aero Desktop
+    -Added 3d and transparency functions
+    -hovering over the running programs in the taskbar shows preview of the windows
+    -Flip 3d
+      -hold windows and hit tab and will scroll through your open programs
+    -required 128-mb video memory and directx9
+    -Does take some video power
+      -how to turn it off
+        -right click on desktop
+        -click personalize
+        -select a basic/high contrast theme to turn aero off
+        -select an aero theme to turn it on
+          -if you dont see aero themes, you don't have directx9 or the proper video card
+  -Gadgets in Windows 7
+    -got rid of the sidebar as a seperate program
+    -just right click and select gadgets
+      -then drag and drop the gadget wherever you want on the desktop
+  -UAC
+    -Updated Vista's UAC
+    -In Vista, there were two settings on/off
+      -In Windows 7, there are 4 levels
+        -All the way on
+        -Only notify if a program attempts to make changes (default setting)
+        -Does not lock the computer before making changes, can still do other things, but whatever task is blocked by UAC wont happen
+        -All the way off
+    -To adjust UAC
+      -go to control panel
+      -go to user accounts
+      -change user accounts control settings
+    
+Touring Windows 7 Part 2
+  -Control Panel Additions
+    -Action Center
+      -This is the replacement for the Vista Security Center
+      -It handles security and maintenance (updates/backup reminders)
+    -Event Viewer
+      -if something interesting happens a log file is created
+      -four tabs
+        -setup
+          -stuff for setting up windows
+        -application
+          -applications and services
+        -security
+          -any security changes
+        -system
+          -most commonly used
+          -core operating system log
+  -Windows 7 Compatibility Mode
+    -Tells windows to run a program as an earlier version of windows
+    -right click on the shortcut
+    -properties
+    -compatibility tab
+    -set your settings and click apply
+      -you'll have to play with the settings (check online)
+      -or right click on the program and select troubleshoot compatibility
+        -this will give you a recommended setting
+  
+Touring Windows 7 Part 3
+  -Libraries and Homegroups
+    -Library
+      -Commonly shared folders (Documents, Photos, Videos, and Music)
+    -Homegroups
+      -halfway between a workgroup and a domain
+      -only run on IPV6
+      -To set up
+        -open control panel
+        -network and sharing center
+        -select home network
+        -select the libraries to share
+        -a password will be created that is required to join the homegroup
+  -Task Manager
+    -Been around from before windows 7
+    -Use task manager to force close problem programs
+    -hit ctrl+shift+esc to open task manager
+    -Applications
+      -shows all open applications
+    -Processes
+      -shows everything your computer is doing, including background programs
+    -Services
+      -all of these run in the background
+    -Performance
+      -Will give a graphic display of the performance of the CPU and RAM usage
+    -Networking
+      -shows bandwith use
+    -Users
+      -shows who is logged into the system
+    -Resource Monitor  
+      -shows a lot of details about how your computer is running
+      -Shows CPU Usage, Disk Usage, Network Usage, and Memory Usage
+
+Touring Windows 8
+  -Lock Screen
+    -shows a picture, then when clicked anywhere a login screen is displayed
+    -could then log into your microsoft account (or a local account) 
+  -Metro UI
+    -Tiles instead of icons
+      -can be moved around and resized
+    -Windows app
+      -it goes to full screen
+      -No minimize or maximize
+    -Can click desktop, and it will show a normal desktop, but with no start button
+      -the start button was replaced with a 'hot corner'
+    -To add a program as a tile on your shortcut, just righgtclick on the program and click pin to start
+    -Store
+      -gives you access to download programs and apps (some free and some paid)
+    -Live Tiles
+      -tiles that move and show multiple images
+  -Windows 8.1
+    -Metro UI has a few changes
+      -more sizing changes for tiles
+      -added pulldown showing all applications on the computer
+      -from start, press windows key and the desktop will be displayed, with a start button
+        -but the start button just brings up the metro UI
+        -could rightclick and use quick links to get to a lot of important utilities
+      -can now close and minimize applications via buttons in the top right corner
+    -The charms bar
+      -Windows Charms
+        -a tool that allowed a one stop shop with utilities
+        -if you scroll to the right of the desktop, the bar will be displayed
+          -it shows shortcuts for certain programs
+
+Touring Windows 10 
+  -Interface Improvements
+    -Start button shows reduced metro UI as well as full start menu
+    -Can set it to just look like windows 8, utilizing full size metro UI
+    -Windows Apps can be fullscreen, minimized, windowed, and closed via the top right
+    -Removed the god damn charms
+  -Mulitple Desktops
+    -OS X calles these Spaces
+    -Linux, Gnome, and KDE call them workspaces
+    -Task  View button
+      -new desktop
+      -can then have two desktops running simultaneously
+  -Edge browser
+    -Web Notes
+      -can highlight bits of a webpage and share it 
+  -Cortana
+    -Voice Assistant
+    -say, "Hey, Cortana" followed by your question
+    -Has to be connected to the internet
+
+Touring OS X
+  -The menu bar
+    -the top left gray bar
+    -apple menu
+  -Status Menus
+    -top right gray bar
+  -The dock
+    -bottom app tray
+  -Spotlight
+    -app search 
+    -cmd + space
+  -System Preferences
+    -control panel for mac
+  -Terminal
+    -command prompt for mac
+  
+Touring Ubuntu/Linux
+  -Linux
+    -open source OS
+    -free (for the most part)
+    -Kernel 
+      -just the core stuff
+
+Tech Paths
+  -Vista
+    -start button
+      -all programs
+      -accessories
+      -system tools
+    -start button
+      -control panel
+      -device manager/Admin tools
+  -Windows 7
+    -start button
+      -all programs
+      -accessories
+      -system tools
+    -start button 
+      -control panel
+      -admin tools/device manager
+  -Windows 8
+    -windows key + x
+      -control panel
+        -admin tools/device manager       
+    -go to metro desktop
+      -start typing PC settings
+  -Windows 10
+    -right click start button
+      -device manager/control panel
+    -click start button
+      -click settings
+  -Linux
+    -most stuff is done in terminal
+    -in general, most distros have a system settings application
+      -this is similar to the windows control panel
+  -OS X
+    -Most utilities we'll need on mac are system preferences
+    -If it's not in system preferences, it'll be in the utilities folder
+  
+
+
