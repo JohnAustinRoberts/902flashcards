@@ -417,7 +417,7 @@
           //show the card section
          $("#currentCard").show();
           //randomly select an index for our current card
-         currentCardIndex = Math.round(Math.random()*allTopicsArray.length-1);
+         currentCardIndex = Math.floor(Math.random()*allTopicsArray.length);
          console.log("First card index: " + currentCardIndex);
           //hide category selector
          $("#categorySelector").hide();
