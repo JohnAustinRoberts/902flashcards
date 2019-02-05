@@ -128,7 +128,7 @@ Linux Command Line Basics
   -pwd
     -list current working location (where am I?)
   -ls
-    -same as list in Windows
+    -same as DIR in Windows
   -ls -l
     -this will show everything will details
   -cd

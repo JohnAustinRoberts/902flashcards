@@ -147,4 +147,5 @@ Storage Spaces
   -Thin Provisioning
     -overstate the size of the drive to leave more room in the drive to add later drives
     -reports to everything that it is the larger value
-  
+    -when run out of room on one drive, it begins writing to the next, like an exteneded drive
+      

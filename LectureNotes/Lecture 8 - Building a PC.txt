@@ -30,7 +30,7 @@ Windows Install Options
       -preset all of the answers for the setup questions (use location, use cortana, send data, etc)
       -this is done with Setup Manager
         -this will ask you the questions, and then save it to a text file called (unattend.txt)
-      -add this text file in a specific location with in your ISO file, and then save the data to a new opticcal disc/resave to thumbdrive
+      -add this text file in a specific location with in your ISO file, and then save the data to a new optical disc/resave to thumbdrive
   -Network Installation
     -This sends a windows image from a windows server to a system without windows server
       -this is done via PXE (Preboot Execution Environment)
