@@ -300,7 +300,7 @@
             console.log("Adding RAM Questions.");
           }
           //was power supplies checked?
-          if ($("#powersupplies").prop("checked")) {
+          if ($("#powerSupplies").prop("checked")) {
               //add power supply questions to full array
             allTopicsArray = allTopicsArray.concat(powerSupplyArray);
             //console log we are adding these questions
@@ -417,7 +417,7 @@
           //show the card section
          $("#currentCard").show();
           //randomly select an index for our current card
-         currentCardIndex = Math.floor(Math.random()*allTopicsArray.length);
+         currentCardIndex = Math.round(Math.random()*allTopicsArray.length-1);
          console.log("First card index: " + currentCardIndex);
           //hide category selector
          $("#categorySelector").hide();
