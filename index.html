@@ -49,9 +49,12 @@
             border: 1px dashed black;
         }
         #buttonBar {
-            width: 100%;
-            height: 100px;
-            background-color: #737373;
+            width: 24%;
+            height: 35px;
+            padding-top:2px;
+            margin-left:38%;
+            background-color: aquamarine;
+            border: 1px solid black;
         }
         #allOrNone {
             margin-bottom: 10px;
@@ -111,6 +114,18 @@
             border: 2px solid black;
             height: 30px;
             border-radius: 50%;
+        }
+        #cardsRemaining {
+            background-color: red;
+            color: black;
+            border: 2px solid black;
+            height: 50px;
+            width: 200px;
+            margin-left: 43%;
+            margin-top: 1%;
+            margin-bottom: 1%;
+            padding-top: 25px;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -205,6 +220,7 @@
                 <button id="generateFlashCards" type="submit" onclick="generate()">Generate Flash Cards</button>
             </div>
         </div>
+        <div id="cardsRemaining"></div>
         <div id="currentCard"></div>
         <div id="buttonBar">
             <button id="showAnswer" onclick="showAnswer()">Show Answer</button>
@@ -237,6 +253,8 @@
       $("#correct").hide();
       $("#incorrect").hide();
       $("#refresh").hide();
+      $("#cardsRemaining").hide();
+      $("#buttonBar").hide()
        //set all variables
        //correct counter
       var numCorrect = 0;
@@ -248,6 +266,8 @@
       var currentCardIndex = 0;
        //create an empty array to house all questions
       var allTopicsArray = [];
+       //number of questions remaining
+      var cardsRemaining = 0;
        //questions for each chapter
       var operationalProceduresArray = [{"front": "What are three physical threats that a PC may face?", "back": "RFI (Radio Frequency Interfereance) can cause trouble with data transfer. EMI (Electromagnetic Interference) is when you have large electromagnetic waves where they shouldn't be. This can fry hard drives. ESD (Electrostatic Discharge) can destroy many small circuits on motherboards, fry CPUs and Fry RAM.", "image": "no", "source": "none"}, {"front": "Before installing any physical hardware into a system, what should you do?", "back": "Disconnect the system from it's power source.", "image": "no", "source": "none"}, {"front": "What clothing can be dangerous to wear when working with computers?", "back": "Neck ties and jewelry can be dangerous around fans inside a computer.", "image": "no", "source": "none"}, {"front": "Why are big messes of cables a bad idea?", "back": "There are several reasons. It makes it difficult to follow a single cable from one end to the other when troubleshooting, they can begin to cause electromagnetic interference, and can be a tripping hazard.", "image": "no", "source": "none"}, {"front": "What type of fire extinguisher should be used for electrical fires?", "back": "A type-C fire extinguisher", "image": "no", "source": "none"}, {"front": "What is a voltmeter? How do you use it?", "back": "A voltmeter measures the voltage of a wall outlet. Plug the red lead into the hot (small slit) and the black lead into neutral (big slit) should read 115-120volts. Switch to hot and ground (bottom hole), should still read 115-120. Switch to ground and neutral, should read 0 volts.", "image": "no", "source": "none"}, {"front": "What are the 6 steps of Troubleshooting Theory?", "back": "1) Identify the problem. 2)Establish a theory of probable cause. 3) Test the theory to determine probable cause. 4) Establish a plan of action. 5) Verify Full System Functionality. 6) Document your process and findings.", "image": "no", "source": "none"}];
       var visibleComputerArray = [{"front": "Which version of windows introduced UAC? What does it stand for?", "back": "User Account Control was implemented with Vista. This seperated a regular user from an administrator, and locked down access to do certain things to administrators. You can enable this option in the User Accounts section of Control Panel.", "image": "no", "source": "none"}, {"front": "Which Windows version featured the Aero Desktop? What'd it do?", "back": "Windows 7 used the Aero Desktop. This enabled 3d and transparency functions to windows. Hovering over open programs in the taskbar would also show preview windows. It required a 128-mb video memory and directX9.", "image": "no", "source": "none"}, {"front": "What are gadgets? What version of Windows used them?", "back": "Gadgets were little applications that could be pinned to your desktop in Windows 7. These were phased out due to high security risks that they could cause.", "image": "no", "source": "none"}, {"front": "Where do you go to adjust UAC?", "back": "The control panel > user accounts", "image": "no", "source": "none"}, {"front": "What is the event viewer, and what does it do?", "back": "The event viewer is a section of logs that record everything that has happened on the system.", "image": "no", "source": "none"}, {"front": "What is compatibility mode?", "back": "This is a mode in windows that allows you to run programs as an earlier version of windows.", "image": "no", "source": "none"}, {"front": "What is a homegroup?", "back": "A homegroup is halfway between a domain and a workgroup. It only runs on IPV6. It can be set up in the network and sharing center of control panel.", "image": "no", "source": "none"}, {"front": "What is the name of the UI used by Windows 8?", "back": "Metro UI. It features a tile based interface.", "image": "no", "source": "none"}, {"front": "What version of windows had the charms bar? What did it do?", "back": "Windows 8. This gave an easy shortcut to certain programs and utilities.", "image": "no", "source": "none"}, {"front": "Who is the Windows Based Voice Assistant?", "back": "Hey, Cortana.", "image": "no", "source": "none"}, {"front": "Who is the Apple Voice Assistant?", "back": "Hey Siri", "image": "no", "source": "none"}, {"front": "Who is the google based voice assistant?", "back": "Okay google.", "image": "no", "source": "none"}];
@@ -410,12 +430,18 @@
           console.log("All Topics: " + allTopicsArray);
           //call function to show first card
           firstCard();
+          //show buttons
+         $("#buttonBar").show();
       }
       function firstCard(){
           //console message to ensure proper performance
           console.log("Let's Do This!");
+          //get card total
+          cardsRemaining = allTopicsArray.length;
           //show the card section
          $("#currentCard").show();
+         //show the cards remaining
+         $("#cardsRemaining").show();
           //randomly select an index for our current card
          currentCardIndex = Math.round(Math.random()*allTopicsArray.length-1);
          console.log("First card index: " + currentCardIndex);
@@ -428,6 +454,9 @@
          console.log(currentCard);
          //create variable to target card div
          var div = document.getElementById("currentCard");
+         //display card total
+         $("#cardsRemaining").html("");
+         $("#cardsRemaining").html("Cards Remaining " + cardsRemaining);
          //check for image
          //and then append front of card for display
          if (currentCard.image = 'no'){
@@ -499,6 +528,7 @@
           numCorrect++;
           //remove the current question from the overall lineup
           allTopicsArray.splice(currentCardIndex, 1);
+          cardsRemaining = allTopicsArray.length;
           nextCard();
       }
       function incorrect() {
@@ -512,6 +542,8 @@
         var div = document.getElementById("currentCard");
         //clear contents of currentCard  
         div.innerHTML = "";
+        $("#cardsRemaining").html("");
+        $("#cardsRemaining").html("Cards Remaining" + cardsRemaining);
         //message ourself to ensure success
         console.log("Cleared text for next card");
         //create an if statement to determine the remaining cards
